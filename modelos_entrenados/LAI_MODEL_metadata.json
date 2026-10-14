@@ -1,0 +1,18 @@
+{
+  "tipo": "unico_rf",
+  "objetivo": "LAI",
+  "predictoras": [
+    "S1_VV",
+    "S1_VH",
+    "FMC",
+    "TA_ERA",
+    "P_ERA",
+    "SW_IN_ERA",
+    "VPD_ERA"
+  ],
+  "metricas": {
+    "r2": 0.8509745124508388,
+    "rmse": 0.15133124210724425,
+    "mae": 0.11631065052073573
+  }
+}

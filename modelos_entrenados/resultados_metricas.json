@@ -1,0 +1,120 @@
+{
+  "cv_resultados": {
+    "AGB_GEDI": {
+      "r2_medio": -0.5355396765183743,
+      "rmse_medio": 35.14049209534442,
+      "mae_medio": 28.80015039738502,
+      "r2_std": 0.36992384892499003,
+      "rmse_std": 12.365143032863298
+    },
+    "LAI_MODEL": {
+      "r2_medio": -0.10614275481428284,
+      "rmse_medio": 0.38252855412743003,
+      "mae_medio": 0.29908672450778784,
+      "r2_std": 0.2689539928327779,
+      "rmse_std": 0.07787137097713942
+    },
+    "FMC_MODEL": {
+      "r2_medio": -0.6630599111244109,
+      "rmse_medio": 0.9497419832184454,
+      "mae_medio": 0.7115936899338464,
+      "r2_std": 1.17180083791087,
+      "rmse_std": 0.15961373699993747
+    },
+    "MLR_baseline": {
+      "r2_medio": -1.6228102069090717,
+      "rmse_medio": 43.770969496217276,
+      "mae_medio": 35.26263656041607,
+      "r2_std": 0.7999780721304495,
+      "rmse_std": 10.135452136228867
+    },
+    "LightGBM": {
+      "r2_medio": -0.2533266106804319,
+      "rmse_medio": 31.541581300007284,
+      "mae_medio": 24.56384535322247,
+      "r2_std": 0.21932563545857967,
+      "rmse_std": 10.927034979947528
+    },
+    "3PG_RF": {
+      "r2_medio": -0.2605568383606625,
+      "rmse_medio": 31.774263859616433,
+      "mae_medio": 25.00254112509306
+    },
+    "3PG_LSTM": {
+      "r2_medio": 0.5789020918905111,
+      "rmse_medio": 0.6839057246288832,
+      "mae_medio": 0.559196320472885
+    },
+    "INCENDIO": {
+      "r2_medio": 0.9927045036764706,
+      "rmse_medio": NaN,
+      "mae_medio": NaN
+    }
+  },
+  "pruebas_estadisticas": {
+    "AGB_GEDI": {
+      "t_stat": 0.0,
+      "p_valor": 1.0,
+      "diferencia_significativa": false,
+      "ic95_bajo": 0.715227563904137,
+      "ic95_alto": 0.85909027423379,
+      "r2_medio_boot": 0.8083523756783836
+    },
+    "LAI_MODEL": {
+      "t_stat": 0.0,
+      "p_valor": 1.0,
+      "diferencia_significativa": false,
+      "ic95_bajo": 0.8160732966809668,
+      "ic95_alto": 0.8807007580320325,
+      "r2_medio_boot": 0.8496313056670918
+    },
+    "FMC_MODEL": {
+      "t_stat": 0.0,
+      "p_valor": 1.0,
+      "diferencia_significativa": false,
+      "ic95_bajo": 0.793833077635473,
+      "ic95_alto": 0.8859292474029764,
+      "r2_medio_boot": 0.8477667106134451
+    },
+    "MLR_baseline": {
+      "t_stat": -5.838949004736461,
+      "p_valor": 1.9417989849898727e-06,
+      "diferencia_significativa": true,
+      "ic95_bajo": -0.4213795693129108,
+      "ic95_alto": 0.43176325326416043,
+      "r2_medio_boot": 0.11969462929527522
+    },
+    "LightGBM": {
+      "t_stat": -5.383497921079005,
+      "p_valor": 7.150546643236768e-06,
+      "diferencia_significativa": true,
+      "ic95_bajo": -0.1953333660666641,
+      "ic95_alto": -2.6880915720528553e-05,
+      "r2_medio_boot": -0.036670763239183356
+    },
+    "3PG_RF": {
+      "t_stat": -5.628054785571924,
+      "p_valor": 3.5481489543295406e-06,
+      "diferencia_significativa": true,
+      "ic95_bajo": -0.08743578963870459,
+      "ic95_alto": 0.11609684915546048,
+      "r2_medio_boot": 0.05941975450085029
+    },
+    "3PG_LSTM": {
+      "t_stat": 0.0,
+      "p_valor": 1.0,
+      "diferencia_significativa": false,
+      "ic95_bajo": 0.43739877940721117,
+      "ic95_alto": 0.6693309596943666,
+      "r2_medio_boot": 0.5708372780703975
+    },
+    "INCENDIO": {
+      "t_stat": 0.0,
+      "p_valor": 1.0,
+      "diferencia_significativa": false,
+      "ic95_bajo": NaN,
+      "ic95_alto": NaN,
+      "r2_medio_boot": 0.9927045036764706
+    }
+  }
+}

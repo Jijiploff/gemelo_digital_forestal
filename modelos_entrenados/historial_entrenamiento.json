@@ -1,0 +1,252 @@
+{
+  "fuente_version": "v1_br-sa1_2026-09-19",
+  "fases": [
+    {
+      "fase": "descarga_datos",
+      "estado": "completada",
+      "timestamp_inicio": "2026-09-19T22:52:15.871500Z",
+      "timestamp_fin": "2026-09-19T22:52:22.513075Z",
+      "duracion_s": 6.6416,
+      "mensajes": [
+        "GEDI L4A: 48 imágenes mensuales encontradas.",
+        "✓ Huellas GEDI válidas extraídas: 744",
+        "Sentinel-1 GRD: 643 escenas.",
+        "Sentinel-2 L2A: 822 escenas.",
+        "Landsat 8/9: 180 escenas.",
+        "MODIS MCD64A1: 264 imágenes.",
+        "MODIS MOD13Q1: 506 imágenes.",
+        "FLUXMET_MM BR-Sa1: NEE=NEE_CUT_REF | GPP=GPP_DT_VUT_REF | Reco=RECO_DT_VUT_REF",
+        "✓ FLUXNET BR-Sa1: 540 registros (FLUXMET + ERA5)."
+      ],
+      "metricas": {
+        "huellas_gedi": 744,
+        "filas_fluxnet": 540
+      },
+      "fuente_version": "v1_br-sa1_2026-09-19"
+    },
+    {
+      "fase": "fusion",
+      "estado": "completada",
+      "timestamp_inicio": "2026-09-19T22:52:40.691295Z",
+      "timestamp_fin": "2026-09-19T22:52:51.698555Z",
+      "duracion_s": 11.007285,
+      "mensajes": [
+        "fusion_biomasa: 2417 registros mensuales satelitales.",
+        "FRACCION_QUEMADA: 128 meses sin imagen MODIS; se asumen 0 (sin quemar).",
+        "✓ Guardado en /content/drive/MyDrive/gemelo_digital_forestal/datos_procesados/dataset_fusionado.parquet",
+        "✓ Dataset fusionado guardado en: /content/drive/MyDrive/gemelo_digital_forestal/datos_procesados/dataset_fusionado.csv (264 filas, 25 columnas)"
+      ],
+      "metricas": {
+        "filas": 264,
+        "columnas": 25
+      },
+      "fuente_version": "v1_br-sa1_2026-09-19"
+    },
+    {
+      "fase": "analisis_exploratorio",
+      "estado": "completada",
+      "timestamp_inicio": "2026-09-19T22:53:06.064872Z",
+      "timestamp_fin": "2026-09-19T22:53:06.098255Z",
+      "duracion_s": 0.033398,
+      "mensajes": [
+        "EDA completado sobre 32 muestras válidas de AGB."
+      ],
+      "metricas": {
+        "correlacion_max_agbd": 0.3762
+      },
+      "fuente_version": "v1_br-sa1_2026-09-19"
+    },
+    {
+      "fase": "validacion_cruzada",
+      "estado": "completada",
+      "timestamp_inicio": "2026-09-19T22:53:11.502807Z",
+      "timestamp_fin": "2026-09-19T22:53:30.327992Z",
+      "duracion_s": 18.825207,
+      "mensajes": [],
+      "metricas": {
+        "k_folds": 5
+      },
+      "fuente_version": "v1_br-sa1_2026-09-19"
+    },
+    {
+      "fase": "ajuste_hiperparametros",
+      "estado": "completada",
+      "timestamp_inicio": "2026-09-19T22:53:11.502859Z",
+      "timestamp_fin": "2026-09-19T22:53:30.327857Z",
+      "duracion_s": 18.825018,
+      "mensajes": [],
+      "metricas": {
+        "RandomForest": {
+          "max_depth": 12,
+          "min_samples_split": 2,
+          "n_estimators": 200
+        },
+        "LightGBM": {
+          "learning_rate": 0.03,
+          "max_depth": 4,
+          "n_estimators": 100
+        }
+      },
+      "fuente_version": "v1_br-sa1_2026-09-19"
+    },
+    {
+      "fase": "entrenamiento_final",
+      "estado": "completada",
+      "timestamp_inicio": "2026-09-19T22:53:41.481152Z",
+      "timestamp_fin": "2026-09-19T22:53:56.529747Z",
+      "duracion_s": 15.048623,
+      "mensajes": [
+        "Entrenados 8 modelos (6 principales + baselines)."
+      ],
+      "metricas": {
+        "AGB_GEDI": {
+          "r2": 0.8208094196506857,
+          "rmse": 13.520098813657226,
+          "mae": 10.718364829985916
+        },
+        "LAI_MODEL": {
+          "r2": 0.8509745124508388,
+          "rmse": 0.15133124210724425,
+          "mae": 0.11631065052073573
+        },
+        "FMC_MODEL": {
+          "r2": 0.8518247393356425,
+          "rmse": 0.34884913869001094,
+          "mae": 0.2611771769052744
+        },
+        "MLR_baseline": {
+          "r2": 0.19402568009268129,
+          "rmse": 28.673643407057323,
+          "mae": 22.61080491357414
+        },
+        "LightGBM": {
+          "r2": 1.1102230246251565e-16,
+          "rmse": 31.939070844504318,
+          "mae": 24.320150992030097
+        },
+        "3PG_RF": {
+          "r2": 0.09517814462060326,
+          "rmse": 30.381122706663394,
+          "mae": 23.379725875461293
+        },
+        "3PG_LSTM": {
+          "r2": 0.5789020918905111,
+          "rmse": 0.6839057246288832,
+          "mae": 0.559196320472885
+        },
+        "INCENDIO": {
+          "accuracy": 0.9431818181818182,
+          "roc_auc": 0.9927045036764706
+        }
+      },
+      "fuente_version": "v1_br-sa1_2026-09-19"
+    },
+    {
+      "fase": "pruebas_estadisticas",
+      "estado": "completada",
+      "timestamp_inicio": "2026-09-19T22:54:25.557422Z",
+      "timestamp_fin": "2026-09-19T22:54:32.350515Z",
+      "duracion_s": 6.793122,
+      "mensajes": [],
+      "metricas": {
+        "AGB_GEDI": {
+          "t_stat": 0.0,
+          "p_valor": 1.0,
+          "diferencia_significativa": false,
+          "ic95_bajo": 0.715227563904137,
+          "ic95_alto": 0.85909027423379,
+          "r2_medio_boot": 0.8083523756783836
+        },
+        "LAI_MODEL": {
+          "t_stat": 0.0,
+          "p_valor": 1.0,
+          "diferencia_significativa": false,
+          "ic95_bajo": 0.8160732966809668,
+          "ic95_alto": 0.8807007580320325,
+          "r2_medio_boot": 0.8496313056670918
+        },
+        "FMC_MODEL": {
+          "t_stat": 0.0,
+          "p_valor": 1.0,
+          "diferencia_significativa": false,
+          "ic95_bajo": 0.793833077635473,
+          "ic95_alto": 0.8859292474029764,
+          "r2_medio_boot": 0.8477667106134451
+        },
+        "MLR_baseline": {
+          "t_stat": -5.838949004736461,
+          "p_valor": 1.9417989849898727e-06,
+          "diferencia_significativa": true,
+          "ic95_bajo": -0.4213795693129108,
+          "ic95_alto": 0.43176325326416043,
+          "r2_medio_boot": 0.11969462929527522
+        },
+        "LightGBM": {
+          "t_stat": -5.383497921079005,
+          "p_valor": 7.150546643236768e-06,
+          "diferencia_significativa": true,
+          "ic95_bajo": -0.1953333660666641,
+          "ic95_alto": -2.6880915720528553e-05,
+          "r2_medio_boot": -0.036670763239183356
+        },
+        "3PG_RF": {
+          "t_stat": -5.628054785571924,
+          "p_valor": 3.5481489543295406e-06,
+          "diferencia_significativa": true,
+          "ic95_bajo": -0.08743578963870459,
+          "ic95_alto": 0.11609684915546048,
+          "r2_medio_boot": 0.05941975450085029
+        },
+        "3PG_LSTM": {
+          "t_stat": 0.0,
+          "p_valor": 1.0,
+          "diferencia_significativa": false,
+          "ic95_bajo": 0.43739877940721117,
+          "ic95_alto": 0.6693309596943666,
+          "r2_medio_boot": 0.5708372780703975
+        },
+        "INCENDIO": {
+          "t_stat": 0.0,
+          "p_valor": 1.0,
+          "diferencia_significativa": false,
+          "ic95_bajo": NaN,
+          "ic95_alto": NaN,
+          "r2_medio_boot": 0.9927045036764706
+        }
+      },
+      "fuente_version": "v1_br-sa1_2026-09-19"
+    },
+    {
+      "fase": "seleccion_modelo",
+      "estado": "completada",
+      "timestamp_inicio": "2026-09-19T22:54:37.471198Z",
+      "timestamp_fin": "2026-09-19T22:54:37.517317Z",
+      "duracion_s": 0.046142,
+      "mensajes": [],
+      "metricas": {
+        "mejor_modelo": "3PG_LSTM"
+      },
+      "fuente_version": "v1_br-sa1_2026-09-19"
+    },
+    {
+      "fase": "exportacion_artefactos",
+      "estado": "completada",
+      "timestamp_inicio": "2026-09-19T22:54:41.527022Z",
+      "timestamp_fin": "2026-09-19T22:54:43.677476Z",
+      "duracion_s": 2.150483,
+      "mensajes": [
+        "✓ AGB_GEDI -> /content/drive/MyDrive/gemelo_digital_forestal/modelos_entrenados/AGB_GEDI.joblib",
+        "✓ LAI_MODEL -> /content/drive/MyDrive/gemelo_digital_forestal/modelos_entrenados/LAI_MODEL.joblib",
+        "✓ FMC_MODEL -> /content/drive/MyDrive/gemelo_digital_forestal/modelos_entrenados/FMC_MODEL.joblib",
+        "✓ MLR_baseline -> /content/drive/MyDrive/gemelo_digital_forestal/modelos_entrenados/MLR_baseline.joblib",
+        "✓ LightGBM -> /content/drive/MyDrive/gemelo_digital_forestal/modelos_entrenados/LightGBM.joblib",
+        "✓ 3PG_RF -> /content/drive/MyDrive/gemelo_digital_forestal/modelos_entrenados/3PG_RF.joblib",
+        "✓ 3PG_LSTM -> /content/drive/MyDrive/gemelo_digital_forestal/modelos_entrenados/3PG_LSTM.h5",
+        "✓ INCENDIO -> /content/drive/MyDrive/gemelo_digital_forestal/modelos_entrenados/INCENDIO.joblib",
+        "✓ Muestra Streamlit -> /content/drive/MyDrive/gemelo_digital_forestal/recursos/datos_ejemplo/muestra_ejemplo.csv"
+      ],
+      "metricas": {},
+      "fuente_version": "v1_br-sa1_2026-09-19"
+    }
+  ]
+}

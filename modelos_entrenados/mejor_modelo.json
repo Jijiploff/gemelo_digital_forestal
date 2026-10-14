@@ -1,0 +1,25 @@
+{
+  "mejor_modelo": "3PG_LSTM",
+  "tipo": "hibrido_fisiologico_lstm",
+  "objetivo": "NEE",
+  "metricas": {
+    "r2": 0.5789020918905111,
+    "rmse": 0.6839057246288832,
+    "mae": 0.559196320472885
+  },
+  "validacion_cruzada": {
+    "r2_medio": 0.5789020918905111,
+    "rmse_medio": 0.6839057246288832,
+    "mae_medio": 0.559196320472885
+  },
+  "variables_predictoras": [
+    "NPP_3PG",
+    "TA_ERA",
+    "P_ERA",
+    "SW_IN_ERA",
+    "VPD_ERA",
+    "LAI"
+  ],
+  "fecha_seleccion": "2026-09-19T22:54:37.505019Z",
+  "fuente_version": "v1_br-sa1_2026-09-19"
+}

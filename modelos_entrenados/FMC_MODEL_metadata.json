@@ -1,0 +1,17 @@
+{
+  "tipo": "unico_rf",
+  "objetivo": "FMC",
+  "predictoras": [
+    "NDVI",
+    "LAI",
+    "TA_ERA",
+    "P_ERA",
+    "SW_IN_ERA",
+    "VPD_ERA"
+  ],
+  "metricas": {
+    "r2": 0.8518247393356425,
+    "rmse": 0.34884913869001094,
+    "mae": 0.2611771769052744
+  }
+}

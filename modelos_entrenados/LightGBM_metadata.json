@@ -1,0 +1,19 @@
+{
+  "tipo": "baseline_boosting",
+  "objetivo": "AGBD_gedi",
+  "predictoras": [
+    "S1_VV",
+    "S1_VH",
+    "NDVI",
+    "LAI",
+    "FMC",
+    "TA_ERA",
+    "P_ERA",
+    "VPD_ERA"
+  ],
+  "metricas": {
+    "r2": 1.1102230246251565e-16,
+    "rmse": 31.939070844504318,
+    "mae": 24.320150992030097
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "tipo": "baseline_lineal",
+  "objetivo": "AGBD_gedi",
+  "predictoras": [
+    "S1_VV",
+    "S1_VH",
+    "NDVI",
+    "LAI",
+    "FMC",
+    "TA_ERA",
+    "P_ERA",
+    "VPD_ERA"
+  ],
+  "metricas": {
+    "r2": 0.19402568009268129,
+    "rmse": 28.673643407057323,
+    "mae": 22.61080491357414
+  }
+}

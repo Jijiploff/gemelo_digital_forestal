@@ -1,0 +1,17 @@
+{
+  "tipo": "hibrido_fisiologico_lstm",
+  "objetivo": "NEE",
+  "predictoras": [
+    "NPP_3PG",
+    "TA_ERA",
+    "P_ERA",
+    "SW_IN_ERA",
+    "VPD_ERA",
+    "LAI"
+  ],
+  "metricas": {
+    "r2": 0.5789020918905111,
+    "rmse": 0.6839057246288832,
+    "mae": 0.559196320472885
+  }
+}

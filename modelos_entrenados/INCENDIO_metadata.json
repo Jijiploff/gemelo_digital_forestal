@@ -1,0 +1,17 @@
+{
+  "tipo": "clasificador_incendio_rf",
+  "objetivo": "INCENDIO",
+  "predictoras": [
+    "NDVI",
+    "LAI",
+    "TA_ERA",
+    "P_ERA",
+    "SW_IN_ERA",
+    "VPD_ERA",
+    "NPP_3PG"
+  ],
+  "metricas": {
+    "accuracy": 0.9431818181818182,
+    "roc_auc": 0.9927045036764706
+  }
+}

@@ -18,9 +18,6 @@ config.local.py
 .streamlit/secrets.toml
 
 # Modelos y artefactos de entrenamiento (regenerados por Colab o restaurados del zip)
-modelos_entrenados/*
-!modelos_entrenados/.gitkeep
-modelos_entrenados-*/
 *.zip
 
 # Datos crudos/procesados descargados (no se versionan; se regeneran desde Drive/Colab)

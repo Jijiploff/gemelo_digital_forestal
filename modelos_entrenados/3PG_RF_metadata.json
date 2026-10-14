@@ -1,0 +1,19 @@
+{
+  "tipo": "hibrido_fisiologico_rf",
+  "objetivo": "AGBD_gedi",
+  "predictoras": [
+    "S1_VV",
+    "S1_VH",
+    "NDVI",
+    "LAI",
+    "FMC",
+    "TA_ERA",
+    "P_ERA",
+    "VPD_ERA"
+  ],
+  "metricas": {
+    "r2": 0.09517814462060326,
+    "rmse": 30.381122706663394,
+    "mae": 23.379725875461293
+  }
+}
