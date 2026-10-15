@@ -8,7 +8,7 @@ import {MapsView} from './views/Maps';
 import {TimelineView} from './views/Timeline'; 
 import {ExportView} from './views/Export';
 import { GlossaryDrawer, GlossaryToggle, useGlossary } from './components/Glossary';
-import './components/glossary.css';
+import './components/Glossary.css';
 
 
 const initial:Scenario={clareo_pct:10,quema_pct:5,restauracion_plantas_ha:80,manejo_combustibles:20,fmc:55,lai:4,ndvi:.72,precipitacion_mm:180,temperatura_c:27,year:2026,month:9};
