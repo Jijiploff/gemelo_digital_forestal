@@ -1,0 +1,349 @@
+{
+  "descripcion": "Métricas adicionales para el artículo; complementa resultados_metricas.json sin modificarlo.",
+  "fuente_version": "v1_br-sa1_2026-10-15",
+  "cv_resultados": {
+    "MLR_baseline": {
+      "r2_medio": -1.6225534999993805,
+      "rmse_medio": 43.7697713408002,
+      "mae_medio": 35.259683084508154,
+      "r2_std": 0.7993472806242183,
+      "rmse_std": 10.132143861003314,
+      "mae_std": 7.594012370724351,
+      "r2_por_pliegue": [
+        -1.0085151424441703,
+        -0.9658399862685616,
+        -1.0136922793642844,
+        -2.2093161691634595,
+        -2.915403922756426
+      ],
+      "rmse_por_pliegue": [
+        45.4568467905207,
+        37.43735456135587,
+        57.86125206975656,
+        28.38904321286856,
+        49.70436006949926
+      ],
+      "mae_por_pliegue": [
+        35.066709173395864,
+        34.41023949948698,
+        44.33545545409882,
+        21.943831309888196,
+        40.54217998567089
+      ]
+    },
+    "LightGBM": {
+      "r2_medio": -0.2533266106804318,
+      "rmse_medio": 31.541581300007277,
+      "mae_medio": 24.56384535322247,
+      "r2_std": 0.21932563545857944,
+      "rmse_std": 10.927034979947535,
+      "mae_std": 7.9350753578236874,
+      "r2_por_pliegue": [
+        -0.29167570635133044,
+        -0.00022122023803050617,
+        -0.5238148014977988,
+        -0.44936778240437847,
+        -0.0015535429106205978
+      ],
+      "rmse_por_pliegue": [
+        36.45343829322162,
+        26.704171120905617,
+        50.33352757843365,
+        19.07804221452251,
+        25.138727292953018
+      ],
+      "mae_por_pliegue": [
+        25.604949798950514,
+        22.543589692794562,
+        38.84920981195106,
+        14.989910072692773,
+        20.831567389723425
+      ]
+    },
+    "AGB_GEDI": {
+      "r2_medio": -0.5573391711288116,
+      "rmse_medio": 35.34848147887027,
+      "mae_medio": 28.87577831016177,
+      "r2_std": 0.3754259955533996,
+      "rmse_std": 12.322206985581214,
+      "mae_std": 9.711894773043824,
+      "r2_por_pliegue": [
+        -0.36188723882050855,
+        -0.2827049658280969,
+        -0.8286443488509072,
+        -0.15786366122304418,
+        -1.1555956409215007
+      ],
+      "rmse_por_pliegue": [
+        37.43107730863084,
+        30.240882328849143,
+        55.1386208069226,
+        17.05191722708075,
+        36.87990972286801
+      ],
+      "mae_por_pliegue": [
+        32.55247295018178,
+        26.592870168084954,
+        44.18283372331258,
+        14.236091035666242,
+        26.814623673563286
+      ]
+    },
+    "3PG_RF": {
+      "r2_medio": -0.23655248301826032,
+      "rmse_medio": 31.602152129107857,
+      "mae_medio": 24.995878760291983,
+      "r2_std": 0.18718973054070184,
+      "rmse_std": 11.290776387669172,
+      "mae_std": 7.725644364619943,
+      "r2_por_pliegue": [
+        -0.30476962656796536,
+        0.027355747485542814,
+        -0.5419250585654583,
+        -0.2102723666161126,
+        -0.15315111082730826
+      ],
+      "rmse_por_pliegue": [
+        36.637739523010694,
+        26.333469525706473,
+        50.63174645927099,
+        17.433559266791335,
+        26.97424587075976
+      ],
+      "mae_por_pliegue": [
+        26.075791713536173,
+        22.21514407691107,
+        39.07092606919312,
+        16.082823859263005,
+        21.534708082556563
+      ]
+    }
+  },
+  "pruebas_estadisticas_referencia": {
+    "modelo_referencia": "AGB_GEDI",
+    "descripcion_referencia": "Random Forest independiente entrenado sobre PRED_AGB para AGBD_gedi (celda [6]).",
+    "estadistico": "t de Student pareado (scipy.stats.ttest_rel) sobre |error absoluto| por muestra",
+    "convencion_signo": "t = media(|err_ref| − |err_modelo|)/EE; t < 0 ⇒ el modelo tiene MAYOR error que la referencia",
+    "errores_usados": "predicciones de ENTRENAMIENTO (in-sample), no fuera de pliegue",
+    "n_pares_por_modelo": {
+      "MLR_baseline": 32,
+      "LightGBM": 32,
+      "3PG_RF": 32
+    },
+    "resultados": {
+      "MLR_baseline": {
+        "t": -5.646950056934462,
+        "p": 3.3613681411200018e-06,
+        "gl": 31
+      },
+      "LightGBM": {
+        "t": -5.166692328535179,
+        "p": 1.3317459903998287e-05,
+        "gl": 31
+      },
+      "3PG_RF": {
+        "t": -5.352264736189837,
+        "p": 7.820622436289467e-06,
+        "gl": 31
+      }
+    }
+  },
+  "shapiro_wilk": [
+    {
+      "objeto": "residuos entrenamiento — AGB_GEDI",
+      "n": 32,
+      "W": 0.9846599348881607,
+      "p_valor": 0.9178745326953688,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "residuos entrenamiento — LAI_MODEL",
+      "n": 94,
+      "W": 0.9753615638045097,
+      "p_valor": 0.07268767155724327,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "residuos entrenamiento — FMC_MODEL",
+      "n": 94,
+      "W": 0.9835157123603413,
+      "p_valor": 0.2851787585835569,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "residuos entrenamiento — MLR_baseline",
+      "n": 32,
+      "W": 0.971408853034317,
+      "p_valor": 0.5391713490235193,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "residuos entrenamiento — LightGBM",
+      "n": 32,
+      "W": 0.9677645437502227,
+      "p_valor": 0.44010245039796336,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "residuos entrenamiento — 3PG_RF",
+      "n": 32,
+      "W": 0.971870187350653,
+      "p_valor": 0.5525540152177086,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "residuos entrenamiento — 3PG_LSTM",
+      "n": 86,
+      "W": 0.9830549986491567,
+      "p_valor": 0.3215620019722862,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "residuos OOF — MLR_baseline",
+      "n": 32,
+      "W": 0.9735789542633158,
+      "p_valor": 0.6034228844846091,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "residuos OOF — LightGBM",
+      "n": 32,
+      "W": 0.9641035900158949,
+      "p_valor": 0.3541932304619581,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "residuos OOF — AGB_GEDI",
+      "n": 32,
+      "W": 0.9667109163156044,
+      "p_valor": 0.4139177306419935,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "residuos OOF — 3PG_RF",
+      "n": 32,
+      "W": 0.9632875877778493,
+      "p_valor": 0.33699174512630214,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "dif. |error| entrenamiento AGB_GEDI − MLR_baseline",
+      "n": 32,
+      "W": 0.9140304923784587,
+      "p_valor": 0.014367685982125978,
+      "normal_p>0.05": false
+    },
+    {
+      "objeto": "dif. |error| OOF AGB_GEDI − MLR_baseline",
+      "n": 32,
+      "W": 0.9648171029379806,
+      "p_valor": 0.36981476174397676,
+      "normal_p>0.05": true
+    },
+    {
+      "objeto": "dif. |error| entrenamiento AGB_GEDI − LightGBM",
+      "n": 32,
+      "W": 0.7978194331873754,
+      "p_valor": 3.709751235419855e-05,
+      "normal_p>0.05": false
+    },
+    {
+      "objeto": "dif. |error| OOF AGB_GEDI − LightGBM",
+      "n": 32,
+      "W": 0.921035640967903,
+      "p_valor": 0.02218136293282448,
+      "normal_p>0.05": false
+    },
+    {
+      "objeto": "dif. |error| entrenamiento AGB_GEDI − 3PG_RF",
+      "n": 32,
+      "W": 0.7839376359613638,
+      "p_valor": 2.0633059992175426e-05,
+      "normal_p>0.05": false
+    },
+    {
+      "objeto": "dif. |error| OOF AGB_GEDI − 3PG_RF",
+      "n": 32,
+      "W": 0.932362158702314,
+      "p_valor": 0.04558821830853616,
+      "normal_p>0.05": false
+    }
+  ],
+  "simulacion_resumen": [
+    {
+      "escenario": "base",
+      "AGB_modelo_media": 100.54537616258244,
+      "AGB_directa": 100.54537616258244,
+      "NEE_media": 1.0014153718948364,
+      "NEE_media_p2_5": 0.6635181307792664,
+      "NEE_media_p97_5": 1.2758022546768188,
+      "RIESGO_medio": 0.5509718694216131,
+      "RIESGO_max_mensual": 0.9164703766414409,
+      "RIESGO_p2_5_medio": 0.008552631578947372,
+      "RIESGO_p97_5_medio": 1.0,
+      "delta_AGB_modelo_media_vs_base_pct": 0.0,
+      "delta_NEE_media_vs_base_pct": 0.0,
+      "delta_RIESGO_medio_vs_base_pct": 0.0
+    },
+    {
+      "escenario": "raleo_20",
+      "AGB_modelo_media": 99.73506467656425,
+      "AGB_directa": 80.43630093006595,
+      "NEE_media": 1.0967810153961182,
+      "NEE_media_p2_5": 0.7302042841911316,
+      "NEE_media_p97_5": 1.3892539739608765,
+      "RIESGO_medio": 0.5532126155272153,
+      "RIESGO_max_mensual": 0.9732123108263149,
+      "RIESGO_p2_5_medio": 0.16264593640366307,
+      "RIESGO_p97_5_medio": 1.0,
+      "delta_AGB_modelo_media_vs_base_pct": -0.8059162111124007,
+      "delta_NEE_media_vs_base_pct": 9.52308177947998,
+      "delta_RIESGO_medio_vs_base_pct": 0.40668974769155763
+    },
+    {
+      "escenario": "quema_prescrita",
+      "AGB_modelo_media": 100.09909655047852,
+      "AGB_directa": NaN,
+      "NEE_media": 1.0235567092895508,
+      "NEE_media_p2_5": 0.6775820851325989,
+      "NEE_media_p97_5": 1.2981692552566528,
+      "RIESGO_medio": 0.5504946795774418,
+      "RIESGO_max_mensual": 0.9165730444045396,
+      "RIESGO_p2_5_medio": 0.011214187811319496,
+      "RIESGO_p97_5_medio": 1.0,
+      "delta_AGB_modelo_media_vs_base_pct": -0.4438589114056146,
+      "delta_NEE_media_vs_base_pct": 2.21099853515625,
+      "delta_RIESGO_medio_vs_base_pct": -0.08660874913128946
+    },
+    {
+      "escenario": "restauracion",
+      "AGB_modelo_media": 100.46071326554944,
+      "AGB_directa": 102.46052618472686,
+      "NEE_media": 0.948520839214325,
+      "NEE_media_p2_5": 0.6330515742301941,
+      "NEE_media_p97_5": 1.214901089668274,
+      "RIESGO_medio": 0.5367312093797222,
+      "RIESGO_max_mensual": 0.8661417950180436,
+      "RIESGO_p2_5_medio": 0.0,
+      "RIESGO_p97_5_medio": 1.0,
+      "delta_AGB_modelo_media_vs_base_pct": -0.08420367028723064,
+      "delta_NEE_media_vs_base_pct": -5.281978607177734,
+      "delta_RIESGO_medio_vs_base_pct": -2.584643759914673
+    },
+    {
+      "escenario": "sequia_severa",
+      "AGB_modelo_media": 116.03500956754785,
+      "AGB_directa": NaN,
+      "NEE_media": 0.8753101825714111,
+      "NEE_media_p2_5": 0.4392407238483429,
+      "NEE_media_p97_5": 1.2328376770019531,
+      "RIESGO_medio": 0.6638323889355834,
+      "RIESGO_max_mensual": 0.927321177283798,
+      "RIESGO_p2_5_medio": 0.008552631578947372,
+      "RIESGO_p97_5_medio": 1.0,
+      "delta_AGB_modelo_media_vs_base_pct": 15.405614853853233,
+      "delta_NEE_media_vs_base_pct": -12.592697143554688,
+      "delta_RIESGO_medio_vs_base_pct": 20.483898684781575
+    }
+  ]
+}

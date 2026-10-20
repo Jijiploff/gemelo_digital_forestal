@@ -1,0 +1,29 @@
+{
+  "modelo_referencia": "AGB_GEDI",
+  "descripcion_referencia": "Random Forest independiente entrenado sobre PRED_AGB para AGBD_gedi (celda [6]).",
+  "estadistico": "t de Student pareado (scipy.stats.ttest_rel) sobre |error absoluto| por muestra",
+  "convencion_signo": "t = media(|err_ref| − |err_modelo|)/EE; t < 0 ⇒ el modelo tiene MAYOR error que la referencia",
+  "errores_usados": "predicciones de ENTRENAMIENTO (in-sample), no fuera de pliegue",
+  "n_pares_por_modelo": {
+    "MLR_baseline": 32,
+    "LightGBM": 32,
+    "3PG_RF": 32
+  },
+  "resultados": {
+    "MLR_baseline": {
+      "t": -5.646950056934462,
+      "p": 3.3613681411200018e-06,
+      "gl": 31
+    },
+    "LightGBM": {
+      "t": -5.166692328535179,
+      "p": 1.3317459903998287e-05,
+      "gl": 31
+    },
+    "3PG_RF": {
+      "t": -5.352264736189837,
+      "p": 7.820622436289467e-06,
+      "gl": 31
+    }
+  }
+}

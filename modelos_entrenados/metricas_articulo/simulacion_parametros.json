@@ -1,0 +1,65 @@
+{
+  "SCENARIOS": {
+    "base": {},
+    "raleo_20": {
+      "LAI": [
+        "mul",
+        0.8
+      ]
+    },
+    "quema_prescrita": {
+      "LAI": [
+        "mul",
+        0.95
+      ],
+      "FMC": [
+        "mul",
+        1.1
+      ]
+    },
+    "restauracion": {
+      "LAI": [
+        "mul",
+        1.1
+      ]
+    },
+    "sequia_severa": {
+      "TA_ERA": [
+        "add",
+        2.0
+      ],
+      "P_ERA": [
+        "mul",
+        0.7
+      ],
+      "FMC": [
+        "mul",
+        0.85
+      ]
+    }
+  },
+  "FACTOR_AGB_DIRECTO": {
+    "base": 1.0,
+    "raleo_20": 0.8,
+    "quema_prescrita": null,
+    "restauracion": 1.019047619047619,
+    "sequia_severa": null
+  },
+  "HORIZONTE": 12,
+  "N_MC": 300,
+  "fechas": [
+    "2024-01-01",
+    "2024-02-01",
+    "2024-03-01",
+    "2024-04-01",
+    "2024-05-01",
+    "2024-06-01",
+    "2024-07-01",
+    "2024-08-01",
+    "2024-09-01",
+    "2024-10-01",
+    "2024-11-01",
+    "2024-12-01"
+  ],
+  "nota": "Drivers = climatología mensual 2002–2023 del dataset fusionado; intervalos 95 % (MC-dropout / árboles RF)"
+}

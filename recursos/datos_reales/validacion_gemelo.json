@@ -1,0 +1,489 @@
+{
+ "metadata": {
+  "generado": "2026-10-20T09:23:33Z",
+  "etiqueta": "AJUSTE (no es validación independiente)",
+  "modelo": "3PG_LSTM",
+  "objetivo": "NEE_CUT_REF (gC m-2 d-1)",
+  "versiones": {
+   "python": "3.13.16",
+   "numpy": "2.1.3",
+   "pandas": "2.2.3",
+   "scikit-learn": "1.6.1",
+   "tensorflow": "2.21.0",
+   "keras": "3.13.2"
+  },
+  "fuente_version_entrenamiento": "v1_br-sa1_2026-10-15",
+  "convenciones": {
+   "residuo": "observado − predicho",
+   "sesgo": "predicho − observado (positivo = el modelo sobreestima NEE)"
+  }
+ },
+ "paridad_entrenamiento": {
+  "recalculado": {
+   "n": 86,
+   "r2": 0.5711767128411207,
+   "rmse": 0.6901506126032233,
+   "mae": 0.5612935760701765,
+   "sesgo_pred_menos_obs": -4.2469602184763056e-05,
+   "r_pearson": 0.7583592659401232
+  },
+  "referencia": {
+   "r2": 0.5711767178514416,
+   "rmse": 0.690150608571404,
+   "mae": 0.5612935701790197
+  },
+  "ok": true
+ },
+ "metricas_ajuste": {
+  "todos (incluye marcadas)": {
+   "n": 86,
+   "r2": 0.5711767128411207,
+   "rmse": 0.6901506126032233,
+   "mae": 0.5612935760701765,
+   "sesgo_pred_menos_obs": -4.2469602184763056e-05,
+   "r_pearson": 0.7583592659401232
+  },
+  "sin ventanas que cruzan el hueco": {
+   "n": 82,
+   "r2": 0.5669408846352668,
+   "rmse": 0.7026159183702795,
+   "mae": 0.5725113139947227,
+   "sesgo_pred_menos_obs": 0.004811200560686959,
+   "r_pearson": 0.7556251269927674
+  },
+  "sin baja calidad (QC>=0.5)": {
+   "n": 79,
+   "r2": 0.5275229145798652,
+   "rmse": 0.6606366243261965,
+   "mae": 0.5424567627918265,
+   "sesgo_pred_menos_obs": -0.005587776765485608,
+   "r_pearson": 0.7266905729213139
+  },
+  "sin ambas marcas": {
+   "n": 75,
+   "r2": 0.5205693424182396,
+   "rmse": 0.6732727144862811,
+   "mae": 0.5537168595478182,
+   "sesgo_pred_menos_obs": -0.0005768471027885521,
+   "r_pearson": 0.7219365983145498
+  }
+ },
+ "lineas_base": {
+  "climatología mensual observada (dejando fuera el año evaluado)": {
+   "n": 86,
+   "r2": 0.30901283051478,
+   "rmse": 0.8760717751426972,
+   "mae": 0.7353392537707641,
+   "sesgo_pred_menos_obs": 0.05294653734772978,
+   "r_pearson": 0.5748894886059795
+  },
+  "persistencia (NEE observado del mes anterior)": {
+   "n": 85,
+   "r2": -0.06606341967863627,
+   "rmse": 1.0902382482204374,
+   "mae": 0.8830138800000001,
+   "sesgo_pred_menos_obs": 0.01702418823529413,
+   "r_pearson": 0.4705433949842955
+  }
+ },
+ "alineacion_ventana": {
+  "tabla": [
+   {
+    "lag_meses": -2,
+    "n": 89,
+    "r2": -0.8003289900861332,
+    "rmse": 1.4145225991391697,
+    "mae": 1.0973978425438868,
+    "sesgo_pred_menos_obs": -0.020319504297636022,
+    "r_pearson": -0.24297247019994703
+   },
+   {
+    "lag_meses": -1,
+    "n": 88,
+    "r2": -0.38217203638543107,
+    "rmse": 1.2438963151021267,
+    "mae": 0.9697114729298529,
+    "sesgo_pred_menos_obs": -0.03576987738313915,
+    "r_pearson": 0.07288823297627547
+   },
+   {
+    "lag_meses": 0,
+    "n": 87,
+    "r2": 0.25736238997735283,
+    "rmse": 0.9062904048735619,
+    "mae": 0.7391301636143894,
+    "sesgo_pred_menos_obs": -0.028612476943415278,
+    "r_pearson": 0.5351048306876504
+   },
+   {
+    "lag_meses": 1,
+    "n": 86,
+    "r2": 0.5598586249526198,
+    "rmse": 0.6991989943202381,
+    "mae": 0.5701270347386913,
+    "sesgo_pred_menos_obs": -0.010269155502512518,
+    "r_pearson": 0.7495641229378859
+   },
+   {
+    "lag_meses": 2,
+    "n": 85,
+    "r2": 0.21393530380917913,
+    "rmse": 0.9395986715630821,
+    "mae": 0.7444909088930262,
+    "sesgo_pred_menos_obs": 0.002808985019937159,
+    "r_pearson": 0.5063492302354715
+   },
+   {
+    "lag_meses": 3,
+    "n": 84,
+    "r2": -0.35521232874259145,
+    "rmse": 1.2395598321560564,
+    "mae": 0.989347044467792,
+    "sesgo_pred_menos_obs": 0.011570658742002986,
+    "r_pearson": 0.10789276839325436
+   }
+  ],
+  "mejor_lag": 1,
+  "conclusion": "CONFIRMADO: la ventana de los 4 meses PREVIOS (t-4..t-1) predice el NEE del mes t, como en el entrenamiento. Una ventana que termina en el mes t (t-3..t) predice el NEE del mes t+1: la API debe usar t-4..t-1.",
+  "regla_api": "ventana = meses t-4..t-1 para predecir el NEE del mes t"
+ },
+ "ventanas_cruzan_hueco": {
+  "n": 4,
+  "fechas_objetivo": [
+   "2008-08",
+   "2008-09",
+   "2008-10",
+   "2008-11"
+  ]
+ },
+ "estacionalidad": {
+  "meses_secos": [
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "sesgo_por_mes": [
+   {
+    "month": 1,
+    "n": 7.0,
+    "obs_media": 0.7112412714285714,
+    "pred_media": 0.7987385988235474,
+    "sesgo_pred_menos_obs": 0.08749731462255206,
+    "rmse": 0.7283292015624278
+   },
+   {
+    "month": 2,
+    "n": 6.0,
+    "obs_media": 1.2526506666666668,
+    "pred_media": 0.9644916653633118,
+    "sesgo_pred_menos_obs": -0.2881589615669251,
+    "rmse": 0.7381510694937187
+   },
+   {
+    "month": 3,
+    "n": 6.0,
+    "obs_media": 0.7138421833333334,
+    "pred_media": 1.0634996891021729,
+    "sesgo_pred_menos_obs": 0.34965754550526934,
+    "rmse": 0.6946085427755058
+   },
+   {
+    "month": 4,
+    "n": 6.0,
+    "obs_media": 1.2573236666666667,
+    "pred_media": 1.1265283823013306,
+    "sesgo_pred_menos_obs": -0.13079522476069136,
+    "rmse": 0.6475424237619106
+   },
+   {
+    "month": 5,
+    "n": 7.0,
+    "obs_media": 1.0626017142857143,
+    "pred_media": 1.2302196025848389,
+    "sesgo_pred_menos_obs": 0.1676178882991246,
+    "rmse": 0.6134723281592213
+   },
+   {
+    "month": 6,
+    "n": 7.0,
+    "obs_media": 1.7031422857142857,
+    "pred_media": 1.5517370700836182,
+    "sesgo_pred_menos_obs": -0.1514052667203631,
+    "rmse": 0.6388770745948532
+   },
+   {
+    "month": 7,
+    "n": 7.0,
+    "obs_media": 2.0124214285714284,
+    "pred_media": 1.7713404893875122,
+    "sesgo_pred_menos_obs": -0.24108100730351043,
+    "rmse": 0.48251134454766514
+   },
+   {
+    "month": 8,
+    "n": 8.0,
+    "obs_media": 1.448086375,
+    "pred_media": 1.4955090284347534,
+    "sesgo_pred_menos_obs": 0.04742265343475337,
+    "rmse": 0.8546083011216432
+   },
+   {
+    "month": 9,
+    "n": 8.0,
+    "obs_media": 0.27257075000000003,
+    "pred_media": 0.40467333793640137,
+    "sesgo_pred_menos_obs": 0.1321026037688851,
+    "rmse": 0.49947167125861025
+   },
+   {
+    "month": 10,
+    "n": 8.0,
+    "obs_media": -0.29180784125,
+    "pred_media": -0.40990614891052246,
+    "sesgo_pred_menos_obs": -0.11809829275936129,
+    "rmse": 0.8825293235354406
+   },
+   {
+    "month": 11,
+    "n": 8.0,
+    "obs_media": -0.34760844999999996,
+    "pred_media": -0.23793482780456543,
+    "sesgo_pred_menos_obs": 0.10967363243998288,
+    "rmse": 0.712250875941306
+   },
+   {
+    "month": 12,
+    "n": 8.0,
+    "obs_media": 0.32117962499999997,
+    "pred_media": 0.32179462909698486,
+    "sesgo_pred_menos_obs": 0.0006150227234363731,
+    "rmse": 0.6442125569261669
+   }
+  ],
+  "sesgo_por_estacion": [
+   {
+    "estacion": "lluviosa",
+    "n": 40.0,
+    "obs_media": 0.858230925,
+    "pred_media": 0.892604649066925,
+    "sesgo_pred_menos_obs": 0.034373668932628644,
+    "rmse": 0.677268704593083
+   },
+   {
+    "estacion": "seca",
+    "n": 46.0,
+    "obs_media": 0.7534537536956522,
+    "pred_media": 0.7234842777252197,
+    "sesgo_pred_menos_obs": -0.029969546588979018,
+    "rmse": 0.7011599198244769
+   }
+  ]
+ },
+ "cobertura_incertidumbre_torre": {
+  "n": 84,
+  "dentro_1x_incert": 0.40476190476190477,
+  "dentro_2x_incert": 0.6190476190476191,
+  "incert_media": 0.3684720833333333,
+  "rmse": 0.6617012305926077
+ },
+ "coherencia_climatologica": {
+  "etiqueta": "coherencia, no validación",
+  "periodo_posterior": [
+   "2012-01",
+   "2026-01"
+  ],
+  "n_meses_posteriores": 169,
+  "r_climatologias": 0.9573869476534513,
+  "rmse_climatologias": 0.3115707444726064,
+  "media_obs": 0.893705274985119,
+  "media_pred_posterior": 1.0245920419692993,
+  "tabla": [
+   {
+    "month": 1,
+    "obs_2002_2011": 1.0029061125,
+    "pred_mismos_meses_2002_2011": 0.7987331748008728,
+    "pred_posterior": 1.0207575559616089
+   },
+   {
+    "month": 2,
+    "obs_2002_2011": 1.2832491428571429,
+    "pred_mismos_meses_2002_2011": 0.9644968509674072,
+    "pred_posterior": 1.2236621379852295
+   },
+   {
+    "month": 3,
+    "obs_2002_2011": 0.9452347285714285,
+    "pred_mismos_meses_2002_2011": 1.063503623008728,
+    "pred_posterior": 1.2748619318008423
+   },
+   {
+    "month": 4,
+    "obs_2002_2011": 1.3124874285714285,
+    "pred_mismos_meses_2002_2011": 1.1265286207199097,
+    "pred_posterior": 1.2677561044692993
+   },
+   {
+    "month": 5,
+    "obs_2002_2011": 1.0626017142857143,
+    "pred_mismos_meses_2002_2011": 1.2302196025848389,
+    "pred_posterior": 1.3366554975509644
+   },
+   {
+    "month": 6,
+    "obs_2002_2011": 1.7031422857142857,
+    "pred_mismos_meses_2002_2011": 1.551736831665039,
+    "pred_posterior": 1.488743782043457
+   },
+   {
+    "month": 7,
+    "obs_2002_2011": 2.0124214285714284,
+    "pred_mismos_meses_2002_2011": 1.7713323831558228,
+    "pred_posterior": 1.5917388200759888
+   },
+   {
+    "month": 8,
+    "obs_2002_2011": 1.448086375,
+    "pred_mismos_meses_2002_2011": 1.5274207592010498,
+    "pred_posterior": 1.4623973369598389
+   },
+   {
+    "month": 9,
+    "obs_2002_2011": 0.27257075000000003,
+    "pred_mismos_meses_2002_2011": 0.3198329210281372,
+    "pred_posterior": 0.8567387461662292
+   },
+   {
+    "month": 10,
+    "obs_2002_2011": -0.29180784125,
+    "pred_mismos_meses_2002_2011": -0.49307307600975037,
+    "pred_posterior": 0.02763764187693596
+   },
+   {
+    "month": 11,
+    "obs_2002_2011": -0.34760845,
+    "pred_mismos_meses_2002_2011": -0.21177545189857483,
+    "pred_posterior": 0.11495906859636307
+   },
+   {
+    "month": 12,
+    "obs_2002_2011": 0.32117962499999997,
+    "pred_mismos_meses_2002_2011": 0.32179927825927734,
+    "pred_posterior": 0.6291965842247009
+   }
+  ]
+ },
+ "contexto_gpp": {
+  "n": 90,
+  "gpp_media": 8.409345,
+  "npp3pg_media": 0.10732866666666667,
+  "razon_npp3pg_gpp": 0.01276302335873563,
+  "r_pearson": -0.009142426015594035,
+  "cierre_balance_reco_menos_gpp_media": 1.0904495555555553,
+  "nee_cut_media": 0.8608507741111111
+ },
+ "advertencias": [
+  "Todas las métricas son de AJUSTE: los 90 meses observados fueron datos de entrenamiento.",
+  "4 ventanas del entrenamiento cruzan el hueco 2006-02→2008-07; están incluidas y marcadas.",
+  "La incertidumbre de la Fase 4 construida con estos residuos subestima el error fuera de muestra."
+ ],
+ "diagnostico_regimen_entrada": {
+  "etiqueta": "diagnóstico de régimen de entrada (no es validación)",
+  "npp3pg": {
+   "n": 288,
+   "min": 0.1,
+   "mediana": 0.1,
+   "max": 0.13427,
+   "fraccion_en_piso_0_1": 0.7222222222222222,
+   "r_con_gpp": -0.009142426015594035
+  },
+  "entradas_por_subperiodo": {
+   "2002-2011": {
+    "S2_NDVI": null,
+    "MODIS_NDVI": 0.5819,
+    "NDVI": 0.5819,
+    "LAI": 1.7918,
+    "NPP_3PG": 0.1065,
+    "TA_ERA": 25.6596,
+    "P_ERA": 5.9362,
+    "SW_IN_ERA": 184.7009,
+    "VPD_ERA": 4.9305
+   },
+   "2012-2016": {
+    "S2_NDVI": 0.4939,
+    "MODIS_NDVI": 0.562,
+    "NDVI": 0.5513,
+    "LAI": 1.6471,
+    "NPP_3PG": 0.1047,
+    "TA_ERA": 25.8652,
+    "P_ERA": 4.9354,
+    "SW_IN_ERA": 189.2542,
+    "VPD_ERA": 5.484
+   },
+   "2017+": {
+    "S2_NDVI": 0.3538,
+    "MODIS_NDVI": 0.5759,
+    "NDVI": 0.3839,
+    "LAI": 0.9965,
+    "NPP_3PG": 0.1003,
+    "TA_ERA": 25.9003,
+    "P_ERA": 5.1647,
+    "SW_IN_ERA": 189.8743,
+    "VPD_ERA": 5.4484
+   }
+  },
+  "nee_predicho_por_subperiodo": {
+   "lai_original": {
+    "2002-2011": {
+     "anual": 0.8427000045776367,
+     "sep_dic": 0.012000000104308128
+    },
+    "2012-2016": {
+     "anual": 0.8598999977111816,
+     "sep_dic": 0.06729999929666519
+    },
+    "2017+": {
+     "anual": 1.1152000427246094,
+     "sep_dic": 0.5960000157356262
+    }
+   },
+   "lai_modis": {
+    "2002-2011": {
+     "anual": 0.8427000045776367,
+     "sep_dic": 0.012000000104308128
+    },
+    "2012-2016": {
+     "anual": 0.8299000263214111,
+     "sep_dic": -0.014800000004470348
+    },
+    "2017+": {
+     "anual": 0.7947999835014343,
+     "sep_dic": -0.04800000041723251
+    }
+   }
+  },
+  "salto_sep_dic_2017_vs_2002_2011": {
+   "lai_original": 0.5839466452598572,
+   "lai_modis": -0.060037367045879364
+  },
+  "coherencia_posterior_2011": {
+   "lai_original": {
+    "n_meses": 169,
+    "r": 0.9573869476534513,
+    "rmse": 0.3115707444726064,
+    "sesgo_medio": 0.1308868256575025
+   },
+   "lai_modis": {
+    "n_meses": 169,
+    "r": 0.9432919455861863,
+    "rmse": 0.25575261104344893,
+    "sesgo_medio": -0.08690844080188305
+   }
+  },
+  "control_periodo_observado_dif_max": 0.0001710057258605957,
+  "veredicto": "CONFIRMADO: el salto de 2017 se debe al cambio de fuente de NDVI/LAI. Usar LAI de MODIS_NDVI en la ventana del LSTM.",
+  "regla_api": "ventana del LSTM con LAI y NPP_3PG calculados desde MODIS_NDVI en todos los meses"
+ }
+}
